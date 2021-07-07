@@ -5,7 +5,9 @@
       <router-view style="min-height: 90vh" />
     </main>
     <router-view name="footer"></router-view>
+    <b-button class="buttons">Create New Event</b-button>
   </div>
+
 </template>
 
 <script>
@@ -15,6 +17,11 @@ export default {
 </script>
 
 <style>
+.buttons{
+  position: fixed;
+  top: 50px;
+  left: 50px;
+}
 :root {
   --interaction-color: #ff9950;
   --danger-color: #ee684f;

@@ -1,7 +1,6 @@
 <template>
   <div class="home-map">
     <transition name="fade">
-      <LoadingScreen v-if="!showMap" />
     </transition>
     <MglMap
       :accessToken="accessToken"
@@ -19,7 +18,6 @@
         :key="marker.ts"
         :coordinates="[marker.long, marker.lat]"
       >
-        <img src="@/assets/button.svg" slot="marker" alt="" srcset="" />
         <MglPopup anchor="top">
           <div class="popup-body">
             <p>{{ marker.long }} {{ marker.lat }}</p>
@@ -36,7 +34,6 @@
 
 <script>
 import Mapbox from "mapbox-gl";
-import LoadingScreen from "../components/LoadingScreen.vue";
 // import MenuButton from '../components/MenuButton';
 
 import {
@@ -49,7 +46,6 @@ import {
 export default {
   name: "MapComponent",
   components: {
-    LoadingScreen,
     // MenuButton,
     MglMap,
     MglMarker,
@@ -60,8 +56,8 @@ export default {
   data() {
     return {
       accessToken:
-        "pk.eyJ1IjoiaW90c3RldmUiLCJhIjoiY2trNWc3M2p6MGIzejJ4bzc5ZjdiZ2pjcCJ9.oy1EEiHX-y4g2Bh7bQlRuQ",
-      mapStyle: "mapbox://styles/iotsteve/ckq5fpucf0pij17leajjtajfp",
+        "pk.eyJ1IjoidG9tYnVlcmtsZSIsImEiOiJjazNzdDhpa2YwODg0M2RvMW5sam1kbWs0In0.UNkxzp2ZEsyGrOfc0zsF5g",
+      mapStyle: "mapbox://styles/tombuerkle/ckqtyylzt08il18qljo5elcmv",
       showMap: false,
       showControls: false,
       showTreePopup: false,
