@@ -7,14 +7,15 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 import "./plugins/bootstrap-vue";
 import store from "./store/store";
+import router from "./router";
 
 Vue.config.productionTip = false;
 
 Vue.use(VueAxios, axios);
-axios.defaults.baseURL = 'http://localhost:8080/'
+axios.defaults.baseURL = "http://localhost:8080/";
 
 new Vue({
-    render: (h) => h(App),
-    store,
-  })
-  .$mount("#app");
+  render: (h) => h(App),
+  router,
+  store,
+}).$mount("#app");
