@@ -13,6 +13,7 @@ export default new Vuex.Store({
       bearing: 0,
       center: [0, 0],
     },
+    events: null
   },
   mutations: {},
   actions: {},

@@ -16,11 +16,15 @@
       <MglMarker
         v-for="marker in mapMarker"
         :key="marker.ts"
-        :coordinates="[marker.long, marker.lat]"
+        :coordinates="[marker.longitude, marker.latitude]"
       >
         <MglPopup anchor="top">
           <div class="popup-body">
-            <p>{{ marker.long }} {{ marker.lat }}</p>
+            <p>
+              {{marker.name}}
+              <br>
+              {{marker.macadressen.length}} / {{marker.maxguests}}
+            </p>
           </div>
         </MglPopup>
       </MglMarker>
@@ -86,7 +90,7 @@ export default {
   },
   computed: {
     mapMarker() {
-      return this.$store.state.soundData;
+      return this.$store.state.events;
     },
   },
   created() {

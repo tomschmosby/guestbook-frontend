@@ -12,7 +12,24 @@ import router from "./router";
 Vue.config.productionTip = false;
 
 Vue.use(VueAxios, axios);
-axios.defaults.baseURL = "http://localhost:8080/";
+axios.defaults.baseURL = "http://localhost:3001/";
+
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (localStorage.getItem('token') === null) {
+      next({
+        name: 'Login',
+      });
+      store.state.loggedIn = false;
+    } else {
+      next();
+      store.state.loggedIn = true;
+    }
+  } else {
+    next();
+  }
+});
 
 new Vue({
   render: (h) => h(App),

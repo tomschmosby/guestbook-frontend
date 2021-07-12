@@ -5,7 +5,6 @@
       <router-view style="min-height: 90vh" />
     </main>
     <router-view name="footer"></router-view>
-    <b-button class="buttons">Create New Event</b-button>
   </div>
 
 </template>
@@ -13,14 +12,33 @@
 <script>
 export default {
   name: "App",
+  mounted() {
+    // this.$router.push('/createProfile');
+    this.getEvents();
+    setInterval(() => {
+      this.getEvents();
+    }, 1000);
+  },
+  methods: {
+    getEvents() {
+      if (!localStorage.getItem('token')) return;
+      this.axios.get('/events', {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      })
+      .then((d) => this.$store.state.events = d.data);
+      // console.log(this.$store.state.events);
+    }
+  }
 };
 </script>
 
 <style>
 .buttons{
   position: fixed;
-  top: 50px;
-  left: 50px;
+  top: 10px;
+  left: 10px;
 }
 :root {
   --interaction-color: #ff9950;
