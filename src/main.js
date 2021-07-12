@@ -12,7 +12,7 @@ import router from "./router";
 Vue.config.productionTip = false;
 
 Vue.use(VueAxios, axios);
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "https://guestbookbe.ds.ava.hfg.design/";
 
 
 router.beforeEach((to, from, next) => {

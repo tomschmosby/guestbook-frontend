@@ -25,6 +25,7 @@
               <br>
               {{marker.macadressen.length}} / {{marker.maxguests}}
             </p>
+            <b-icon v-if="marker._id === id" icon="trash" style="cursor:pointer;" @click="deleteEvent(marker._id)" />
           </div>
         </MglPopup>
       </MglMarker>
@@ -87,10 +88,25 @@ export default {
         this.$store.state.mapLoaded = true;
       }
     },
+    deleteEvent(id) {
+      this.axios.delete('/event', {
+        data: {
+          id
+        }, 
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }).then(() => {
+          alert('Event gelöscht');
+        });
+    }
   },
   computed: {
     mapMarker() {
       return this.$store.state.events;
+    },
+    id() {
+      return localStorage.getItem('id');
     },
   },
   created() {
