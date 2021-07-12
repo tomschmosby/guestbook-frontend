@@ -1,5 +1,6 @@
+// In der index.js werden alle verlinkungen der 'Seiten' definiert 
 import Vue from "vue";
-import VueRouter from "vue-router";
+import VueRouter from "vue-router"; 
 import Home from "../views/Home.vue";
 
 

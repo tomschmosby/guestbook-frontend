@@ -1,3 +1,7 @@
+<!-- in der Map.vue wird die Map Konfiguriert->
+
+
+<!--Diese Objekte werden verwendet-->
 <template>
   <div class="home-map">
     <transition name="fade">
@@ -12,7 +16,7 @@
       :bearing.sync="$store.state.mapState.bearing"
       class="home-map"
     >
-      <!-- use markers on the map -->
+      <!-- Verwenden der Marker -->
       <MglMarker
         v-for="marker in mapMarker"
         :key="marker.ts"
@@ -33,15 +37,13 @@
       <MglGeolocateControl v-if="showControls" />
       <MglNavigationControl v-if="showControls" />
     </MglMap>
-    <!--MenuButton v-if="showControls"/-->
   </div>
 </template>
 
 <script>
 import Mapbox from "mapbox-gl";
-// import MenuButton from '../components/MenuButton';
-
-import {
+// Importieren der Abhängigkeiten
+import { 
   MglMap,
   MglMarker,
   MglPopup,
@@ -60,9 +62,9 @@ export default {
   },
   data() {
     return {
-      accessToken:
-        "pk.eyJ1IjoidG9tYnVlcmtsZSIsImEiOiJjazNzdDhpa2YwODg0M2RvMW5sam1kbWs0In0.UNkxzp2ZEsyGrOfc0zsF5g",
-      mapStyle: "mapbox://styles/tombuerkle/ckqtyylzt08il18qljo5elcmv",
+      accessToken: //mit dem Accesstocen wird die Verbindung zur Mapbox Api hergestellt 
+        "pk.eyJ1IjoidG9tYnVlcmtsZSIsImEiOiJjazNzdDhpa2YwODg0M2RvMW5sam1kbWs0In0.UNkxzp2ZEsyGrOfc0zsF5g", 
+      mapStyle: "mapbox://styles/tombuerkle/ckqtyylzt08il18qljo5elcmv", //verwenden des angelegten Styles
       showMap: false,
       showControls: false,
       showTreePopup: false,
@@ -71,19 +73,12 @@ export default {
   },
   methods: {
     async onMapLoad(/*event*/) {
-      // const asyncActions = event.component.actions
       if (this.$store.state.mapLoaded) {
         this.showControls = true;
         setTimeout(() => (this.showMap = true), 250);
       } else {
         this.showMap = true;
-        /*await asyncActions.flyTo({
-            center: [13.4546841, 52.5142626],
-            zoom: 14,
-            speed: 0.5
-          })
-          .then(() => setTimeout(() => this.showControls = true, 500));
-          */
+
         setTimeout(() => (this.showControls = true), 500);
         this.$store.state.mapLoaded = true;
       }

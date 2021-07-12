@@ -1,3 +1,6 @@
+//Die main.js stellt das Backend des Frontend dar. hier werden alle Abhängigkeiten zu externen Services initialisiert
+
+
 import "@babel/polyfill";
 import "mutationobserver-shim";
 import Vue from "vue";
@@ -11,10 +14,11 @@ import router from "./router";
 
 Vue.config.productionTip = false;
 
+//Verbindung zum Backend über Axios
 Vue.use(VueAxios, axios);
 axios.defaults.baseURL = "https://guestbookbe.ds.ava.hfg.design/";
 
-
+//Prüfe ob Token Existieren, Um Aus Home zu gelanden sonst auf Login 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (localStorage.getItem('token') === null) {
@@ -31,6 +35,7 @@ router.beforeEach((to, from, next) => {
   }
 });
 
+//Vue Objekt erstellen
 new Vue({
   render: (h) => h(App),
   router,

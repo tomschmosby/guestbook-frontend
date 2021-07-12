@@ -1,3 +1,7 @@
+<!-- NewEvent ist die Seite mit dem Dialog um sich ein zu loggen-->
+
+
+<!--Diese Objekte werden verwendet-->
 <template>
   <div>
     <b-form-input v-model="loginEmail" placeholder="Email"></b-form-input>
@@ -8,6 +12,7 @@
 </template>
 
 <script>
+// poste die eingegebenen Inhalte zum Endpunkt /login ins backend
 export default {
     data() {
       return {

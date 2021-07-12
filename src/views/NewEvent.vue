@@ -1,3 +1,7 @@
+<!-- NewEvent ist die Seite mit dem Dialog um eine Neues Event an zu legen -->
+
+
+<!--Diese Objekte werden verwendet-->
 <template>
     <b-container fluid>
     <b-row>
@@ -12,7 +16,9 @@
   </b-container>
 </template>
 
+
 <script>
+// poste die eingegebenen Inhalte zum Endpunkt /event ins backend
   export default {
     data() {
       return {

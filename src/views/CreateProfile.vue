@@ -1,4 +1,8 @@
-<template>
+<!-- CreateProfile ist die Seite mit dem Dialog um ein sich als Nutzer zu Registreieren->
+
+
+<!--Diese Objekte werden verwendet-->
+<template> 
 
   <b-container fluid>
     <p>
@@ -21,6 +25,7 @@
 </template>
 
 <script>
+// poste die eingegebenen Inhalte zum Endpunkt /profiles ins backend
   export default {
     components: {
     },

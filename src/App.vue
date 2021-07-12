@@ -1,3 +1,4 @@
+<!--In App.vue wird die gesamte Website angezeigt hier sind alle Komponenten mit ihren Abhaenigkeiten vorhanden-->
 <template>
   <div id="app">
     <router-view name="header"></router-view>
@@ -14,13 +15,14 @@ export default {
   name: "App",
   mounted() {
     // this.$router.push('/createProfile');
+    // Überprüfe secuendlich die Events und update
     this.getEvents();
     setInterval(() => {
       this.getEvents();
     }, 1000);
   },
   methods: {
-    getEvents() {
+    getEvents() {//Events werden abgerufen aus dem Backend
       if (!localStorage.getItem('token')) return;
       this.axios.get('/events', {
         headers: {

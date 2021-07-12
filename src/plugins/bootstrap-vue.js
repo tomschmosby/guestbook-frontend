@@ -1,3 +1,4 @@
+// mit dieser datei wird das Plugin BootstrapVue verwendet
 import Vue from "vue";
 
 import { BootstrapVue, BootstrapVueIcons } from "bootstrap-vue";

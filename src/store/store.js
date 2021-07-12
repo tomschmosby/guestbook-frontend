@@ -1,3 +1,4 @@
+//in der store.js werden Globale Variablen definiert die in verschiednen dateien gebraucht werden
 import Vue from "vue";
 import Vuex from "vuex";
 
