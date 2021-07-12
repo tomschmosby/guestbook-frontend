@@ -4,10 +4,9 @@
     <p>
       Welcome to Guestbook
     </p>
-    <b-row>
+    <b-row> <!--Eingabefelder -->
       <b-form-input v-model="profileFirstname" placeholder="Firstname"></b-form-input>
       <b-form-input v-model="profileLastname" placeholder="Lastname"></b-form-input>
-    
       <b-form-input v-model="profileadress" placeholder="Adress"></b-form-input>
       <b-form-input v-model="profileZipcode" placeholder="Zip-Code"></b-form-input>
       <b-form-input v-model="profileCity" placeholder="City"></b-form-input>
